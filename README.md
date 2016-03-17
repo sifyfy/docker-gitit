@@ -9,6 +9,25 @@ docker run -d \
     -v /path/to/wikidata:/data/wikidata:rw \
     -v /path/to/static:/data/static:rw \
     -v /path/to/templates:/data/static:rw \
+    -e LANG=ja_JP.UTF-8 \
+    siphilia/gitit:latest
+~~~
+
+## Difference from default.conf
+
+* `default-extension` : `page` -> `md`
+
+## Override gitit configuration
+
+~~~
+docker run -d \
+    --name gitit \
+    -h gitit \
+    -v /path/to/custom.conf:/data/default.conf:ro \
+    -v /path/to/wikidata:/data/wikidata:rw \
+    -v /path/to/static:/data/static:rw \
+    -v /path/to/templates:/data/static:rw \
+    -e LANG=ja_JP.UTF-8 \
     siphilia/gitit:latest
 ~~~
 
